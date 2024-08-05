@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Khodam Berdasarkan Nama</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            text-align: center;
+            padding: 20px;
+            background-color: green;
+            border: 2px solid:green;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .game-container h1 {
+            color: greenyellow;
+        }
+        .game-container input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .game-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: goldenrod;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .game-container button:hover {
+            background-color: black;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>cek khodam</h1>
+        <p>masukkan nama:</p>
+        <input type="text" id="nameInput" placeholder="masukkan nama">
+        <button onclick="checkKhodam()">Cek</button>
+        <div id="result" class="result"></div>
+        <div id="message1" class="message">Sigma</div>
+        <div id="message2" class="message">Pecel lele</div>
+        <div id="message3" class="message">Telolet gemmes</div>
+        <div id="message1" class="message">Pecinta hewan</div>
+        <div id="message1" class="message">normal</div>
+        <div id="message1" class="message">Raja</div>
+        <div id="message1" class="message">Copet</div>
+    </div>
+
+    <script>
+        function checkKhodam() {
+            const name = document.getElementById('nameInput').value.trim().toLowerCase();
+            const resultElement = document.getElementById('result');
+            
+            // Menyembunyikan semua pesan
+            document.getElementById('message1').style.display = 'none';
+            document.getElementById('message2').style.display = 'none';
+            document.getElementById('message3').style.display = 'none';
+            
+            if (name === '') {
+                resultElement.textContent = "Silakan masukkan nama kamu.";
+                return;
+            }
+
+            // Algoritma sederhana untuk menentukan khodam berdasarkan nama
+            let khodam;
+            if (name.includes('a') || name.includes('e')) {
+                khodam = 1; // Khodam Harimau
+            } else if (name.includes('i') || name.includes('o')) {
+                khodam = 2; // Khodam Naga
+            } else {
+                khodam = 3; // Khodam Burung Hantu
+            }
+
+            // Menampilkan hasil
+            switch (khodam) {
+                case 1:
+                    resultElement.textContent = "Sigma";
+                    document.getElementById('message1').style.display = 'block';
+                    break;
+                case 2:
+                    resultElement.textContent = "Pecel lele";
+                    document.getElementById('message2').style.display = 'block';
+                    break;
+                case 3:
+                    resultElement.textContent = "Copet";
+                    document.getElementById('message3').style.display = 'block';
+                    break;
+                case 4:
+                    resultElement.textContent = "Pecinta hewan";
+                    document.getElementById('message4').style.display = 'block';
+                    break;
+                case 5:
+                    resultElement.textContent = "Raja";
+                    document.getElementById('message5').style.display = 'block';
+                    break;
+                case 6:
+                    resultElement.textContent = "Copet";
+                    document.getElementById('message6').style.display = 'block';
+                    break;
+                default:
+                    resultElement.textContent = "Terjadi kesalahan, coba lagi!";
+            }
+        }
+    </script>
+</body>
+</html>

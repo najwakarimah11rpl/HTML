@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: blueviolet;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ff69b4;
+            background-color: #fff0f5;
+            border-radius: 10px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff69b4;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">
+        <p id="offer">Hey, ada yang mau aku tanya...</p>
+        <button onclick="acceptOffer()">Tanya Aku Sesuatu!</button>
+        <p id="response" style="display: none;"></p>
+    </div>
+    <button onclick="showMessage()">Tanya Aku Sesuatu!</button>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('offer').innerHTML = `
+                <p>Hey, kamu tau nggak? Kalau kamu adalah bintang, kamu pasti bintang yang paling bersinar di galaksi!</p>
+                <p>Aku mau tanya, mau nggak jadi bagian dari hidupku selamanya?</p>
+            `;
+        }
+
+        function acceptOffer() {
+            const responses = [
+                "Tentu saja, aku sudah siap menjadi bagian dari hidupmu!",
+                "Kamu tahu, aku tidak bisa menolak tawaran yang luar biasa ini!",
+                "Bagaimana bisa aku menolak jika kamu membuatku merasa istimewa?",
+                "Aku sudah lama menunggu momen ini!"
+            ];
+            const response = responses[Math.floor(Math.random() * responses.length)];
+            document.getElementById('response').innerHTML = `
+                <p>${response}</p>
+                <p>Jadi, kita sudah sepakat, ya? Aku akan jadi bagian dari hidupmu!</p>
+            `;
+            document.getElementById('response').style.display = 'block';
+        }
+        alert("hai cantik");
+        prompt("lagi apa?");
+        alert("aku mau nanya sesuatu ke kamu");
+        alert("baca baik baik yaa ehe");
+
+    </script>
+</body>
+</html>

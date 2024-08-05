@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota Gacoan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container, .nota {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-container h2, .nota h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container select, .form-container input, .form-container button {
+            padding: 10px;
+            margin: 5px 0;
+            width: calc(100% - 22px);
+        }
+        .form-container button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #218838;
+        }
+        .nota table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .nota th, .nota td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .nota th {
+            background-color: #f4f4f4;
+        }
+        .nota .total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Welcome Gacoan</h2>
+    <label for="menu">menu</label>
+    <select id="menu">
+    </select>
+    <label for="jumlah">jumlah</label>
+    <input type="number" id="jumlah" placeholder="Jumlah item" min="1">
+    <label for="level">level pedas</label>
+    <input type="number" id="level"  min="1">
+    <button onclick="tambahItem()">cetak</button>
+</div>
+
+<div class="nota" id="notaPembelian" style="display:none;">
+    <h2>Nota Pembelian Gacoan</h2>
+    <p><strong>nama tamu:</strong> <span id="noNota"></span></p>
+    <p><strong>tanggal:</strong> <span id="tanggal"></span></p>
+    <p><strong>kasir:</strong> <span id="namaKasir"></span></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="itemList">
+        </tbody>
+    </table>
+    <p class="total"><strong>Total Keseluruhan:</strong> <span id="totalKeseluruhan"></span></p>
+</div>
+
+<script>
+    const menuItems = [
+        { item: 'Mie suit', harga: 10.000 },
+        { item: 'Mie hompimpa', harga: 10000 },
+        { item: 'Es teh manis', harga: 7000 },
+        { item: 'Udang keju', harga: 8000 },
+        { item: 'Es Teh Manis', harga: 7000 },
+        { item: 'Es Teh Manis', harga: 7000 }
+    ];
+
+    const items = [];
+    let itemIndex = 1;
+
+    function populateMenu() {
+        const menu = document.getElementById('menu');
+        menuItems.forEach(menuItem => {
+            const option = document.createElement('option');
+            option.value = menuItem.item;
+            option.textContent = `${menuItem.item} - Rp${menuItem.harga.toLocaleString()}`;
+            menu.appendChild(option);
+        });
+    }
+
+    function tambahItem() {
+        const selectedItem = document.getElementById('menu').value;
+        const jumlah = parseInt(document.getElementById('jumlah').value);
+        const menuItem = menuItems.find(item => item.item === selectedItem);
+
+        if (!selectedItem || isNaN(jumlah) || jumlah <= 0) {
+            alert('Silakan pilih item dan masukkan jumlah yang valid.');
+            return;
+        }
+
+        items.push({ item: selectedItem, harga: menuItem.harga, jumlah });
+        document.getElementById('jumlah').value = '';
+        tampilkanNota();
+    }
+
+    function tampilkanNota() {
+        const noNota = `GAC-${itemIndex++}`;
+        const tanggal = new Date().toLocaleDateString();
+        const namaKasir = "";
+
+        document.getElementById('noNota').textContent = noNota;
+        document.getElementById('tanggal').textContent = tanggal;
+        document.getElementById('namaKasir').textContent = namaKasir;
+
+        let totalKeseluruhan = 0;
+        const itemList = document.getElementById('itemList');
+        itemList.innerHTML = '';
+
+        items.forEach(item => {
+            const totalItem = item.harga * item.jumlah;
+            totalKeseluruhan += totalItem;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.item}</td>
+                <td>${item.harga.toLocaleString()}</td>
+                <td>${item.jumlah}</td>
+                <td>${totalItem.toLocaleString()}</td>
+            `;
+            itemList.appendChild(row);
+        });
+
+        document.getElementById('totalKeseluruhan').textContent = totalKeseluruhan.toLocaleString();
+        document.querySelector('.nota').style.display = 'block';
+    }
+
+    // Populate menu options on page load
+    window.onload = populateMenu;
+</script>
+
+</body>
+</html>

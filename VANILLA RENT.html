@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Copslay</title>
+    <link rel="stylesheet" >
+    <style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: blueviolet;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style-type: none;
+    float: right;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: pink;
+}
+
+section#katalog {
+    padding: 50px 0;
+}
+
+h2 {
+    color: pink;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+.kostum {
+    background-color: plum;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.kostum:hover {
+    transform: translateY(-5px);
+}
+
+.kostum h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.kostum p {
+    margin-bottom: 5px;
+}
+
+.kostum button {
+    background-color: #f0ad4e;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.kostum button:hover {
+    background-color: violet;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+} 
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: violet; text-align: center;">Vanilla Cosrent</h1> <br>
+        <h1 style="color: aqua;">Rental Copslay Anime&Game Termurah Sidoarjo</h1> <br>
+        <nav>
+            <ul>
+                <li><a href="#">Kontak</a></li>
+                <li><a href="#">Pesan disini</a></li>
+                <li><a href="#">Peraturan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="katalog">
+        <h2>katalog kostum:</h2>
+        <div id="daftar-kostum"> <img src="" alt="">
+        </div>
+    </section>
+    <script >
+        // Tambahan di scripts.js
+
+function searchFunction() {
+    // Ambil elemen input pencarian dan semua kostum
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let costumeList = document.getElementById('costumeList');
+    let costumes = costumeList.getElementsByClassName('costume-card');
+
+    // Iterasi melalui semua kostum
+    for (let i = 0; i < costumes.length; i++) {
+        let name = costumes[i].getAttribute('data-name').toLowerCase();
+        let description = costumes[i].getAttribute('data-description').toLowerCase();
+
+        // Cek apakah nama atau deskripsi kostum sesuai dengan input pencarian
+        if (name.includes(input) || description.includes(input)) {
+            costumes[i].style.display = '';
+        } else {
+            costumes[i].style.display = 'none';
+        }
+    }
+}
+const kostumData = [
+    { nama: 'Luvy wampis', harga: 60000}, //gambar
+    { nama: 'Kelly epep', harga: 65000}, 
+    { nama: 'Arima kana', harga: 65000},
+    { nama: 'Angel csm', harga: 70000},
+    { nama: 'Nahida gensin', harga: 60000},
+    { nama: 'Makima csm', harga: 60000},
+    { nama: 'Anya spy', harga: 60000},
+]; 
+function tampilkanKostum() {
+    const daftarKostumElem = document.getElementById('daftar-kostum');
+    let html = '';
+    kostumData.forEach(kostum => {
+        html += `
+            <div class="kostum">
+                <h3>${kostum.nama}</h3>
+                <p>Harga: Rp ${kostum.harga}</p>
+                <p> ${kostum.stok}</p>
+                <button onclick="pesanKostum('${kostum.nama}')">booking now</button>
+            </div>
+        `;
+    });
+
+    daftarKostumElem.innerHTML = html;
+}
+
+// Fungsi untuk menangani pesanan kostum (misalnya bisa menambahkan ke keranjang belanja)
+function pesanKostum(namaKostum) {
+    // Implementasi logika sesuai kebutuhan
+    alert(`Anda telah memilih kostum: ${namaKostum},scan untuk info lebih lanjut`);
+}
+
+// Memanggil fungsi tampilkanKostum untuk memuat daftar kostum saat halaman dimuat
+document.addEventListener('DOMContentLoaded', tampilkanKostum);
+
+    </script> 
+    <h2>kontak kami</h2>
+    <img src="c:\Users\Najwa karimah\Documents\BISNIS GUE\POLAROID\WhatsApp Image 2024-07-15 at 19.16.03_f95bfad3.jpg" alt="">
+</body>
+</html>

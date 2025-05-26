@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimoni Pelanggan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #5f1e7a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .testi-section {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .testi-section h2 {
+            font-size: 36px;
+            color: #5f1e7a;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        .testi-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .testi-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .testi-card .customer-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5f1e7a;
+            margin-bottom: 10px;
+        }
+
+        .testi-card .testimonial-text {
+            font-style: italic;
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testi-card .costume-rented {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: #5f1e7a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: #4c155b;
+        }
+
+        /* Grid Layout untuk Testimoni */
+        .testi-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .btn-back {
+            margin-top: 40px;
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #5f1e7a;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        
+        .back-btn {
+            display: inline-block;
+            background-color: #6a1b9a;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .back-btn:hover {
+            background-color: #9c27b0;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Testimoni Pelanggan Kami</h1>
+    </header>
+
+    <!-- Bagian Testimoni -->
+    <section class="testi-section">
+        <h2>Review dari Pelanggan yang Sudah Sewa Kostum</h2>
+
+        <!-- Testimoni Cards Container -->
+        <div class="testi-cards-container">
+
+            <!-- Testimoni 1 -->
+            <div class="testi-card">
+                <p class="customer-name">Doni A.</p>
+                <p class="testimonial-text">"Kostum yang aku sewa super keren! Ga nyesel deh, jadi berasa kayak beneran karakter anime. Mantul banget! 😄🔥"</p>
+                <p class="costume-rented">Rental: Kostum Naruto Uzumaki</p>
+            </div>
+
+            <!-- Testimoni 2 -->
+            <div class="testi-card">
+                <p class="customer-name">Siti N.</p>
+                <p class="testimonial-text">"Gokil! Kostumnya sama persis kayak yang aku liat di anime. Wajib coba deh buat cosplay, keren parah! 😍👌"</p>
+                <p class="costume-rented">Rental: Kostum Sakura Haruno</p>
+            </div>
+
+            <!-- Testimoni 3 -->
+            <div class="testi-card">
+                <p class="customer-name">Rina S.</p>
+                <p class="testimonial-text">"Aku pake kostum Naruto buat acara cosplay, semua orang pada nanya beli dimana, haha! Bikin semangat banget deh! 😆💥"</p>
+                <p class="costume-rented">Rental: Kostum Naruto Uzumaki</p>
+            </div>
+
+            <!-- Testimoni 4 -->
+            <div class="testi-card">
+                <p class="customer-name">Budi H.</p>
+                <p class="testimonial-text">"Kostumnya kece banget! Ga cuma nyaman dipakai, tapi juga keren banget pas dipake foto-foto. Worth it banget! 📸👍"</p>
+                <p class="costume-rented">Rental: Kostum Luffy - One Piece</p>
+            </div>
+
+            <!-- Testimoni 5 -->
+            <div class="testi-card">
+                <p class="customer-name">Fahmi K.</p>
+                <p class="testimonial-text">"Aku suka banget sama kostum Goku, bener-bener sama banget dengan di Dragon Ball. Terasa beneran jadi Goku! 💪😎"</p>
+                <p class="costume-rented">Rental: Kostum Goku - Dragon Ball</p>
+            </div>
+
+            <!-- Testimoni 6 -->
+            <div class="testi-card">
+                <p class="customer-name">Eka P.</p>
+                <p class="testimonial-text">"Sewa kostum Ichigo, dan hasilnya luar biasa! Kostumnya nyaman dan kualitasnya bagus banget! 😁✨"</p>
+                <p class="costume-rented">Rental: Kostum Ichigo Kurosaki - Bleach</p>
+            </div>
+
+            <!-- Testimoni 7 -->
+            <div class="testi-card">
+                <p class="customer-name">Lina W.</p>
+                <p class="testimonial-text">"Kostum Luffy yang aku sewa benar-benar nyaman dipakai, dan pasti akan aku sewa lagi nanti! 😍👌"</p>
+                <p class="costume-rented">Rental: Kostum Luffy - One Piece</p>
+            </div>
+
+            <!-- Testimoni 8 -->
+            <div class="testi-card">
+                <p class="customer-name">Rizky M.</p>
+                <p class="testimonial-text">"Sewanya gampang dan cepat! Kostum Goku yang aku sewa pas banget, cocok banget buat acara cosplay kemarin! 💨🎉"</p>
+                <p class="costume-rented">Rental: Kostum Goku - Dragon Ball</p>
+            </div>
+
+        </div>
+
+        <!-- Tombol Kembali -->    
+         <button class="back-btn" onclick="window.history.back()">Kembali</button>
+
+    </section>
+</body>
+</html>

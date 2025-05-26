@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anime Costume Rental</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #6a1b9a; /* Ungu utama */
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo h1 {
+            font-size: 2rem;
+        }
+
+        header .info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            margin-left: 20px;
+        }
+
+        header .info p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #6a1b9a; /* Ungu utama */
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .hero .btn:hover {
+            background-color: #ff9900;
+        }
+
+        /* Catalog Section */
+        .catalog {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .catalog h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #6a1b9a; /* Ungu utama */
+        }
+
+        .catalog-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .catalog-item {
+            background-color: #f4f4f9;
+            border: 1px solid #ddd;
+            width: 220px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .catalog-item h3 {
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
+
+        .catalog-item p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .catalog-item .price {
+            font-size: 1.2rem;
+            color: #9c27b0; /* Ungu muda untuk harga */
+            margin-bottom: 20px;
+        }
+
+        .catalog-item .btn {
+            background-color: #6a1b9a; /* Ungu utama */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .catalog-item .btn:hover {
+            background-color: #9c27b0; /* Ungu muda saat hover */
+        }
+
+        /* Testimonial Section */
+        .testimonials {
+            background-color: #6a1b9a; /* Ungu utama */
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .testimonials .testimonial-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px; /* Menambah jarak antar testimonial */
+            margin-top: 20px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial-item .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-item .author {
+            font-weight: bold;
+            color: #6a1b9a; /* Ungu utama */
+        }
+
+        /* Cara Rental Section */
+        .cara-rental {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .cara-rental h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #6a1b9a; /* Ungu utama */
+        }
+
+        .cara-rental .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .cara-rental .step {
+            background-color: #f4f4f9;
+            width: 220px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .cara-rental .step:hover {
+            transform: translateY(-10px);
+        }
+
+        .cara-rental .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .cara-rental .step p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Syarat & Denda Section */
+        .syarat-denda {
+            padding: 50px 20px;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+
+        .syarat-denda h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #6a1b9a; /* Ungu utama */
+        }
+
+        .syarat-denda ul {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .syarat-denda ul li {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .syarat-denda ul li span {
+            font-weight: bold;
+        }
+
+        .syarat-denda .denda {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Rentcos Cosplay</h1>
+        </div>
+        <div class="info">
+            <p>Lokasi: Surabaya</p>
+            <p>Costum Only | Pengiriman Seluruh Indonesia</p>
+        </div>
+        <nav>
+            <ul>
+                <!-- <li><a href="cara.html">Cara Sewa</a></li>
+                <li><a href="daftar.html">Kontak</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Wujudkan Karakter Cosplay Favoritmu!</h2>
+            <p>Temukan koleksi kostum anime terbaik dan paling populer. Mudah disewa, cepat diproses!</p>
+            <a href="daftar.html" class="btn">Lihat Katalog</a>
+            <a href="daftar.html" class="btn">Sewa/Booking</a>
+        </section>
+
+        <section class="catalog">
+            <h2>Katalog Kostum Anime</h2>
+            <div class="catalog-items">
+                <div class="catalog-item">
+                    <img src="https://via.placeholder.com/250" alt="Kostum 1">
+                    <h3>Kostum Naruto Uzumaki</h3>
+                    <p>Kostum lengkap dengan jaket Hokage, celana, dan headband.</p>
+                    <p class="price">Rp 150.000/hari</p>
+                    <a href="#" class="btn">Sewa Sekarang</a>
+                </div>
+
+                <div class="catalog-item">
+                    <img src="https://via.placeholder.com/250" alt="Kostum 2">
+                    <h3>Kostum Sakura Haruno</h3>
+                    <p>Kostum dengan kimono merah dan aksesoris khas ninja.</p>
+                    <p class="price">Rp 120.000/hari</p>
+                    <a href="#" class="btn">Sewa Sekarang</a>
+                </div>
+
+                <div class="catalog-item">
+                    <img src="https://via.placeholder.com/250" alt="Kostum 3">
+                    <h3>Kostum Luffy - One Piece</h3>
+                    <p>Kostum ikonik dengan kaos merah, topi jerami, dan celana pendek.</p>
+                    <p class="price">Rp 180.000/hari</p>
+                    <a href="#" class="btn">Sewa Sekarang</a>
+                </div>
+
+                <div class="catalog-item">
+                    <img src="https://via.placeholder.com/250" alt="Kostum 4">
+                    <h3>Kostum Goku - Dragon Ball</h3>
+                    <p>Setelan gi lengkap dengan logo dan sabuk biru.</p>
+                    <p class="price">Rp 200.000/hari</p>
+                    <a href="#" class="btn">Sewa Sekarang</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>Apa Kata Pelanggan Kami</h2>
+            <div class="testimonial-items">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-item">
+                    <div class="emoji positive">😊</div>
+                    <p>"Kostum-kostumnya sangat berkualitas, cocok dengan yang saya harapkan! Proses sewa yang cepat dan mudah. Admin juga sangat membantu!"</p>
+                    <p class="author">- Andi, Jakarta</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-item">
+                    <div class="emoji neutral">😐</div>
+                    <p>"Pelayanan terbaik! Kostum yang saya sewa sangat nyaman dan sesuai dengan ukuran. Adminnya ramah dan informatif!"</p>
+                    <p class="author">- Siti, Surabaya</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-item">
+                    <div class="emoji positive">😍</div>
+                    <p>"Kostum yang saya sewa sangat keren! Sempurna untuk cosplay saya, dan proses pemesanannya sangat cepat dan mudah. Terima kasih Rentcos!"</p>
+                    <p class="author">- Budi, Bandung</p>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-item">
+                    <div class="emoji positive">🤩</div>
+                    <p>"Luar biasa! Saya baru pertama kali sewa kostum, dan ternyata sangat mudah. Kostumnya sangat nyaman dan berkualitas!"</p>
+                    <p class="author">- Rina, Bali</p>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-item">
+                    <div class="emoji positive">😁</div>
+                    <p>"Pengalaman sewa yang menyenankan! Kostum yang saya sewa pas sekali dan sangat detail. Pasti akan sewa lagi di Rentcos!"</p>
+                    <p class="author">- Joko, Yogyakarta</p>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-item">
+                    <div class="emoji neutral">😌</div>
+                    <p>"Meskipun saya sedikit khawatir soal ukuran, tapi ternyata pas dan nyaman. Proses pemesanannya sangat cepat. Terima kasih!"</p>
+                    <p class="author">- Dewi, Medan</p>
+                </div>
+
+                <!-- Testimonial 7 -->
+                <div class="testimonial-item">
+                    <div class="emoji positive">😃</div>
+                    <p>"Sangat puas dengan pelayanan Rentcos. Kostumnya berkualitas dan pengiriman sangat cepat. Sangat merekomendasikan!"</p>
+                    <p class="author">- Ahmad, Jakarta</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cara-rental">
+            <h2>Cara Rental Kostum</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Pilih Kostum</h3>
+                    <p>Pilih kostum yang Anda inginkan dari katalog kami.</p>
+                </div>
+                <div class="step">
+                    <h3>Pesan Kostum</h3>
+                    <p>Pesan kostum melalui website kami atau kontak langsung melalui chat.</p>
+                </div>
+                <div class="step">
+                    <h3>Pembayaran</h3>
+                    <p>Proses pembayaran melalui transfer bank atau e-wallet.</p>
+                </div>
+                <div class="step">
+                    <h3>Pengiriman</h3>
+                    <p>Kostum akan dikirimkan ke lokasi Anda dengan cepat.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="syarat-denda">
+            <h2>Syarat & Denda</h2>
+            <ul>
+                <li><span>1.</span> Kostum harus dikembalikan dalam kondisi baik.</li>
+                <li><span>2.</span> Pengembalian terlambat dikenakan denda.</li>
+                <li><span>3.</span> Kostum yang hilang atau rusak akan dikenakan biaya ganti rugi.</li>
+            </ul>
+            <div class="denda">
+                Denda keterlambatan pengembalian Rp 50.000/hari
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

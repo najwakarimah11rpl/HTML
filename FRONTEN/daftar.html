@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #9c27b0;
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="submit"],
+        .back-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: #fff;
+            color: #9c27b0;
+        }
+
+        input[type="submit"] {
+            background-color: #6a1b9a;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8e24aa;
+        }
+
+        .back-btn {
+            background-color: #b39ddb;
+            color: white;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #9575cd;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Form Pendaftaran</h2>
+        <form id="registerForm">
+            <label for="nohp">Nomor HP:</label>
+            <input type="text" id="nohp" name="nohp" required>
+            <div class="error" id="nohpError"></div>
+
+            <label for="alamat">Alamat:</label>
+            <input type="text" id="alamat" name="alamat" required>
+            <div class="error" id="alamatError"></div>
+
+            <input type="submit" value="Daftar">
+            <button type="button" class="back-btn" onclick="window.history.back()">Kembali</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let nohp = document.getElementById('nohp').value;
+            let alamat = document.getElementById('alamat').value;
+
+            let valid = true;
+
+            // Reset errors
+            document.getElementById('nohpError').innerText = '';
+            document.getElementById('alamatError').innerText = '';
+
+            // Validate fields
+            if (!nohp || nohp.length < 10) {
+                document.getElementById('nohpError').innerText = 'Nomor HP tidak valid!';
+                valid = false;
+            }
+
+            if (!alamat) {
+                document.getElementById('alamatError').innerText = 'Alamat lengkap harus diisi!';
+                valid = false;
+            }
+
+            // If valid, submit form and redirect to catalog.html
+            if (valid) {
+                alert('Form berhasil disubmit!');
+                window.location.href = 'catalog.html'; // Redirect to catalog.html
+            }
+        });
+    </script>
+
+</body>
+</html>

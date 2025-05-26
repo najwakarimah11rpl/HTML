@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Kostum Anime</title>
+    <style>
+        /* Styling untuk katalog kostum dengan tema ungu */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4f8; /* Warna latar belakang cerah */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header dengan tombol Tanya dan Cara Rental */
+        header {
+            background-color: #5f1e7a; /* Warna ungu gelap untuk header */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .header-buttons {
+            margin-top: 10px;
+        }
+
+        .header-buttons a {
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: #d94a9e; /* Warna ungu terang untuk tombol */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-buttons a:hover {
+            background-color: #4c155b; /* Warna ungu lebih gelap saat hover */
+        }
+
+        /* Styling untuk katalog */
+        .catalog {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .catalog h2 {
+            font-size: 36px;
+            color: #5f1e7a; /* Warna ungu gelap untuk judul */
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .catalog-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .catalog-item {
+            background-color: #fff; /* Latar belakang item putih */
+            border-radius: 8px;
+            overflow: hidden;
+            width: 250px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow halus di sekitar item */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-10px); /* Efek hover untuk mengangkat item */
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Shadow lebih kuat saat hover */
+        }
+
+        .catalog-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .catalog-item h3 {
+            font-size: 22px;
+            color: #5f1e7a; /* Judul item dengan warna ungu */
+            margin: 15px 0;
+        }
+
+        .catalog-item p {
+            font-size: 16px;
+            color: #333;
+            padding: 0 15px;
+            margin-bottom: 15px;
+        }
+
+        .catalog-item .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d94a9e; /* Warna ungu terang untuk harga */
+        }
+
+        .catalog-item .size {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .catalog-item .btn {
+            display: inline-block;
+            background-color: #5f1e7a; /* Tombol ungu gelap */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .catalog-item .btn:hover {
+            background-color: #4c155b; /* Warna ungu lebih gelap saat hover */
+        }
+
+        /* Responsif untuk ukuran layar kecil */
+        @media (max-width: 768px) {
+            .catalog-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .catalog-item {
+                width: 80%;
+                margin-bottom: 30px;
+            }
+        }/* Styling untuk ukuran kostum */
+.catalog-item .size {
+    font-size: 14px; /* Ukuran font lebih kecil */
+    color: #333; /* Warna teks hitam */
+    margin-bottom: 10px; /* Memberikan ruang antara ukuran dan detail kostum */
+    font-weight: normal; /* Mengurangi ketebalan font untuk tampilan lebih ringan */
+}
+
+.catalog-item .detail {
+    font-size: 14px; /* Ukuran font detail lebih kecil dan lebih kompak */
+    color: #777; /* Memberikan warna abu-abu muda agar detail tidak terlalu dominan */
+    margin-bottom: 15px; /* Jarak antara detail dan tombol */
+}
+
+/* Styling untuk tombol */
+.catalog-item .btn {
+    display: inline-block;
+    background-color: #5f1e7a;
+    color: #fff;
+    padding: 8px 15px; /* Ukuran tombol sedikit lebih kecil */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    font-size: 14px; /* Ukuran font pada tombol sedikit lebih kecil */
+}
+
+.catalog-item .btn:hover {
+    background-color: #4c155b; /* Warna lebih gelap saat hover */
+}
+
+/* Responsif untuk ukuran layar kecil */
+@media (max-width: 768px) {
+    .catalog-item {
+        width: 80%; /* Lebih besar pada layar kecil untuk kemudahan navigasi */
+    }
+
+    .catalog-item .size,
+    .catalog-item .detail {
+        font-size: 13px; /* Ukuran font lebih kecil pada layar kecil */
+    }
+}
+/* Styling untuk kolom pencarian */
+.search-bar {
+    margin-bottom: 30px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 250px;
+    border: 2px solid #d94a9e;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #5f1e7a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #4c155b;
+}.search-bar button {
+    padding: 10px 20px;
+    background-color: #5f1e7a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #4c155b;
+}
+
+
+    </style>
+</head> <script>
+    function searchCostumes() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const items = document.querySelectorAll('.catalog-item');
+    
+        items.forEach(item => {
+            const title = item.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(input)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
+    
+    function resetSearch() {
+        document.getElementById('searchInput').value = ''; // Kosongkan input
+        const items = document.querySelectorAll('.catalog-item');
+        items.forEach(item => {
+            item.style.display = "block"; // Tampilkan semua item kembali
+        });
+    }
+    </script>
+    
+    
+<body>
+    <!-- Header dengan tombol Tanya dan Cara Rental -->
+    <header>
+        <h1>Rental Kostum Cosplay</h1>
+        <h3>
+            ⏰ OPEN 24 JAM | 🌷 Dijamin Aman Dan Nyaman, Bisa kirim Seluruh Indonesia | 📍 SURABAYA, Jawa Timur | JNT/JNE | ❌ Sewa SET only, No Fitting! | ⚠️ SEWA? Baca FAQ Terlebih Dahulu</h3>
+        <!-- <p>⏰ OPEN 24 JAM | 🌷 Dijamin Aman Dan Nyaman | 📍 SURABAYA, Jawa Timur | JNT/PAXEL | ❌ Sewa SET only | No Fitting! | ⚠️ SEWA? Baca FAQ Terlebih Dahulu</p> -->
+        <div class="header-buttons">
+            <!-- <a href="cara.html">Cara Rental</a> -->
+            <a href="tanya.html">FAQ</a> 
+            <a href="testi2.html">Testi</a>
+            <a href="real.html">Realpict</a> 
+            <a href="struk.html">Riwayat</a> 
+            <a href="https://shopee.co.id/list/Kostum/Cosplay">Beli</a>
+        </div>
+    </header>
+
+    <section class="catalog">
+        <h2>Katalog Kostum</h2>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Cari kostum...">
+            <button onclick="searchCostumes()">Cari</button>
+            <button onclick="resetSearch()">Reset</button> <!-- Tombol reset -->
+        </div>
+        
+
+        <div class="catalog-items">
+            <!-- Naruto Uzumaki - Naruto -->
+            <div class="catalog-item">
+                <img src="naruto.jpg" alt="Naruto Uzumaki - Naruto">
+                <h3>Naruto Uzumaki – Naruto</h3>
+                <p class="price">Rp 90.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum lengkap dengan jaket Hokage, celana, headband, dan wig khas Naruto.</p>
+                <a href="order.html?kostum=Naruto" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Sakura Haruno - Naruto -->
+            <div class="catalog-item">
+                <img src="sakura.jpg" alt="Sakura Haruno - Naruto">
+                <h3>Sakura Haruno – Naruto</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum lengkap dengan kimono merah, aksesoris ninja seperti pita, sepatu khas, dan wig Sakura.</p>
+                <a href="order.html?kostum=Sakura" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Monkey D. Luffy - One Piece -->
+            <div class="catalog-item">
+                <img src="wam.jpg" alt="Monkey D. Luffy - One Piece">
+                <h3>Monkey D. Luffy – One Piece</h3>
+                <p class="price">Rp 60.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum ikonik Luffy dengan kaos merah, topi jerami, celana pendek, dan wig Luffy.</p>
+                <a href="order.html?kostum=Luffy" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Goku - Dragon Ball -->
+            <div class="catalog-item">
+                <img src="goku.jpg" alt="Goku - Dragon Ball">
+                <h3>Goku – Dragon Ball</h3>
+                <p class="price">Rp 80.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Setelan gi Goku dengan logo, sabuk biru, dan wig Goku.</p>
+                <a href="order.html?kostum=Goku" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Anya Forger - Spy x Family -->
+            <div class="catalog-item">
+                <img src="anya.jpg" alt="Anya Forger - Spy x Family">
+                <h3>Anya Forger – Spy x Family</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: M</p>
+                <p class="detail">Detail: Kostum Anya dengan seragam, pita di rambut, dan wig imut khas Anya.</p>
+                <a href="order.html?kostum=Anya" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Loid Forger - Spy x Family -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Loid Forger - Spy x Family">
+                <h3>Loid Forger – Spy x Family</h3>
+                <p class="price">Rp 89.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Loid dengan jas formal, dasi, dan rambut rapi ala agen rahasia.</p>
+                <a href="order.html?kostum=Loid" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Yor Forger - Spy x Family -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Yor Forger - Spy x Family">
+                <h3>Yor Forger – Spy x Family</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Yor dengan gaun hitam elegan, sepatu hak tinggi, dan wig hitam panjang.</p>
+                <a href="order.html?kostum=Yor" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Eren Yeager - Attack on Titan -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Eren Yeager - Attack on Titan">
+                <h3>Eren Yeager – Attack on Titan</h3>
+                <p class="price">Rp 89.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Eren dengan jaket militer, bendera sigil, dan wig Eren.</p>
+                <a href="order.html?kostum=Eren" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Tanjiro Kamado - Demon Slayer -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Tanjiro Kamado - Demon Slayer">
+                <h3>Tanjiro Kamado – Demon Slayer</h3>
+                <p class="price">Rp 89.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Tanjiro dengan jaket kimono khas, pedang Nichirin, dan wig Tanjiro.</p>
+                <a href="order.html?kostum=Tanjiro" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Nezuko Kamado - Demon Slayer -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Nezuko Kamado - Demon Slayer">
+                <h3>Nezuko Kamado – Demon Slayer</h3>
+                <p class="price">Rp 89.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Nezuko dengan kimono tradisional, tongkat bambu, dan wig Nezuko.</p>
+                <a href="order.html?kostum=Nezuko" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Sailor Moon - Sailor Moon -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Sailor Moon - Sailor Moon">
+                <h3>Sailor Moon – Sailor Moon</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum lengkap dengan rok pendek, topi, pita merah, dan wig Sailor Moon.</p>
+                <a href="order.html?kostum=SailorMoon" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Elaina - The World's Finest Assassin -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Elaina - The World's Finest Assassin">
+                <h3>Elaina – The World's Finest Assassin</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Elaina dengan gaun hitam, mantel putih, dan wig panjang khas Elaina.</p>
+                <a href="order.html?kostum=Elaina" class="btn">Sewa Sekarang</a>
+            </div>
+        
+            <!-- Himmel - Re:Zero -->
+            <div class="catalog-item">
+                <img src="https://via.placeholder.com/250" alt="Himmel - Re:Zero">
+                <h3>Himmel – Re:Zero</h3>
+                <p class="price">Rp 85.000/3 hari</p>
+                <p class="size">Ukuran: L</p>
+                <p class="detail">Detail: Kostum Himmel dengan pelayan pria khas, jaket putih, dan wig berwarna terang.</p>
+                <a href="order.html?kostum=Himmel" class="btn">Sewa Sekarang</a>
+            </div>
+        </div>
+        
+
+        </div>
+    </section>
+</body>
+</html>

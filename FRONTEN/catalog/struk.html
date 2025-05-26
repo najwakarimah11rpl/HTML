@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struk Penyewaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .order-container {
+            background-color: #9c27b0;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .order-container h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .order-container p {
+            margin: 5px 0;
+        }
+        .back-btn {
+            background-color: #b39ddb;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+        }
+        .back-btn:hover {
+            background-color: #9575cd;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Riwayat Orderan</h2>
+<div id="orders">
+    <!-- Order akan ditampilkan di sini -->
+</div>
+
+<button class="back-btn" onclick="window.history.back()">Kembali</button>
+
+<script>
+    // Ambil data order dari localStorage
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    // Mendeklarasikan variabel harga untuk masing-masing kostum
+    const hargaKostum = {
+        Naruto: 90000, // Kostum Naruto Uzumaki
+        Sakura: 85000, // Kostum Sakura Haruno
+        Luffy: 60000, // Kostum Luffy - One Piece
+        Goku: 80000, // Kostum Goku - Dragon Ball
+        Anya: 85000, // Kostum Anya Forger - Spy x Family
+        Loid: 89000, // Kostum Loid Forger - Spy x Family
+        Yor: 85000, // Kostum Yor Forger - Spy x Family
+        Eren: 89000, // Kostum Eren Yeager - Attack on Titan
+        Tanjiro: 89000, // Kostum Tanjiro Kamado - Demon Slayer
+        Nezuko: 89000, // Kostum Nezuko Kamado - Demon Slayer
+        SailorMoon: 85000, // Kostum Sailor Moon
+        Elaina: 85000, // Kostum Elaina - The World's Finest Assassin
+        Himmel: 85000 // Kostum Himmel - Re:Zero
+    };
+
+    // Cek apakah ada order
+    if (orders.length === 0) {
+        document.getElementById("orders").innerHTML = "<p>Belum ada orderan.</p>";
+    } else {
+        // Tampilkan setiap order
+        orders.forEach((order, index) => {
+            const orderDiv = document.createElement("div");
+            orderDiv.classList.add("order-container");
+
+            // Mengambil harga berdasarkan kostum yang disewa
+            let harga = hargaKostum[order.kostum] || "Harga Tidak Tersedia";
+
+            orderDiv.innerHTML = `
+                <h3>Struk Order ${index + 1}</h3>
+                <p><strong>Nama:</strong> ${order.nama}</p>
+                <p><strong>Nomor HP:</strong> ${order.nohp}</p>
+                <p><strong>Alamat:</strong> ${order.alamat}</p>
+                <p><strong>Kostum yang Disewa:</strong> ${order.kostum}</p>
+                <p><strong>Harga:</strong> Rp ${harga.toLocaleString()}</p>
+                <p><strong>Metode Pengiriman:</strong> ${order.pengiriman}</p>
+                <p><strong>Metode Pembayaran:</strong> ${order.pembayaran}</p>
+            `;
+            
+            document.getElementById("orders").appendChild(orderDiv);
+        });
+    }
+</script>
+
+</body>
+</html>

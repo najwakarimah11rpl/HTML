@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Penyewaan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3e5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .container {
+            background-color: #9c27b0;
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .security-note {
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="file"],
+        select,
+        input[type="submit"],
+        .back-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: #fff;
+            color: #9c27b0;
+        }
+
+        input[type="submit"] {
+            background-color: #6a1b9a;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #8e24aa;
+        }
+
+        .back-btn {
+            background-color: #b39ddb;
+            color: white;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #9575cd;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .transfer-info {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .transfer-info img {
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        .jaminan-info {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .jaminan-info p {
+            color: #fff;
+        }
+
+        .info-after-form {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .shipping-info {
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .min-sewa {
+            font-size: 12px;
+            color: #fff;
+            text-align: center;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Form Penyewaan</h2>
+        <div class="security-note">
+            <p>Mohon untuk mengisi form dengan benar agar proses penyewaan dapat berjalan lancar.</p>
+        </div>
+        <form id="rentalForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            <div class="error" id="namaError"></div>
+
+            <label for="nohp">Nomor HP:</label>
+            <input type="tel" id="nohp" name="nohp" required>
+            <div class="error" id="nohpError"></div>
+
+            <label for="nowa_ortu">Nomor WA Orang Tua:</label>
+<input type="tel" id="nowa_ortu" name="nowa_ortu" required>
+<div class="error" id="ortuError"></div>
+
+<label for="nowa_teman">Nomor WA Teman:</label>
+<input type="tel" id="nowa_teman" name="nowa_teman" required>
+<div class="error" id="temanError"></div>
+
+
+            <label for="alamat">Alamat Lengkap hingga kode pos:</label>
+            <input type="text" id="alamat" name="alamat" required>
+            <!-- <H3>CONTOH: </H3> -->
+            <div class="error" id="alamatError"></div>
+
+            <label for="kostum">Kostum yang Akan Disewa:</label>
+            <select id="kostum" name="kostum" required>
+                <option value="">Pilih Kostum</option>
+                <option value="Kostum Naruto Uzumaki">Kostum Naruto Uzumaki</option>
+                <option value="Kostum Sakura Haruno">Kostum Sakura Haruno</option>
+                <option value="Kostum Luffy - One Piece">Kostum Luffy - One Piece</option>
+                <option value="Kostum Goku - Dragon Ball">Kostum Goku - Dragon Ball</option>
+                <option value="Kostum Ichigo Kurosaki">Kostum Ichigo Kurosaki - Bleach</option>
+                <option value="Kostum Monkey D. Luffy">Kostum Monkey D. Luffy - One Piece</option>
+                <option value="Kostum Kakashi Hatake">Kostum Kakashi Hatake</option>
+                <option value="Kostum Edward Elric">Kostum Edward Elric - Fullmetal Alchemist</option>
+                <option value="Kostum Sailor Moon">Kostum Sailor Moon</option>
+                <option value="Kostum Inuyasha">Kostum Inuyasha</option>
+                <option value="Kostum Shinra Kusakabe">Kostum Shinra Kusakabe - Fire Force</option>
+                <option value="Kostum Natsu Dragneel">Kostum Natsu Dragneel - Fairy Tail</option>
+                <option value="Kostum Kenshin Himura">Kostum Kenshin Himura - Rurouni Kenshin</option>
+                <option value="Kostum Light Yagami">Kostum Light Yagami - Death Note</option>
+                <option value="Kostum Mikasa Ackerman">Kostum Mikasa Ackerman - Attack on Titan</option>
+            </select>
+            <div class="error" id="kostumError"></div>
+
+            <label for="tanggal_sewa">Tanggal Sewa:</label>
+            <input type="date" id="tanggal_sewa" name="tanggal_sewa" required>
+            <div class="error" id="tanggalSewaError"></div>
+            <!-- Menambahkan Teks Minimal H-3 -->
+            <div class="min-sewa">
+                <h3>MINIMAL H-4 SEWA</h3>
+                <H3>MAX H-1 BULAN</H3>
+            </div>
+
+            <!-- KTP Upload -->
+            <label for="ktp">Upload Foto KTP:</label>
+            <input type="file" id="ktp" name="ktp" accept="image/*" required>
+            <div class="error" id="ktpError"></div>
+
+            <!-- Jaminan Kostum Info -->
+            <div class="jaminan-info">
+                <H3>Jaminan Kostum: Harap pastikan Anda memberikan jaminan berupa foto KTP sebagai syarat untuk menyewa kostum ini. Foto KTP Anda akan digunakan untuk proses verifikasi.</H3>
+                <!-- <p>Jaminan Kostum: Harap pastikan Anda memberikan jaminan berupa foto KTP sebagai syarat untuk menyewa kostum ini. Foto KTP Anda akan digunakan untuk proses verifikasi.</p> -->
+            </div>
+
+            <label for="pengiriman">Pengiriman:</label>
+            <select id="pengiriman" name="pengiriman" required>
+                <option value="JNT">JNT/JNE</option>
+                <option value="Ambil di Tempat">Ambil di Tempat</option>
+            </select>
+            <div class="error" id="pengirimanError"></div>
+
+            <!-- Shipping Info -->
+            <div class="shipping-info">
+                <H3>HARGA BELUM TERMASUK ONGKIR</H3>
+            </div>
+
+            <label for="pembayaran">DP / Lunas:</label>
+            <select id="pembayaran" name="pembayaran" required>
+                <option value="DP">DP</option>
+                <option value="Lunas">Lunas</option>
+            </select>
+            <div class="error" id="pembayaranError"></div>
+
+            <!-- DP Info -->
+            <div class="transfer-info">
+                <H3>Minimal DP: Rp 50.000</H3>
+                <!-- <p>Minimal DP: Rp 50.000</p> -->
+                <img src="QRIS.jpg" alt="Transfer Info Image">
+                <p style="text-align: center; margin-top: 10px; font-weight: bold;">
+                    No. Rekening: 1234567890 a.n. Nama Admin (BANK BCA)
+                </p>
+                
+            </div>
+
+            <input type="submit" value="Order">
+            <button type="button" class="back-btn" onclick="window.history.back()">Kembali</button>
+        </form>
+
+        <div class="info-after-form">
+            <H3>Setelah mengisi, kami akan menginformasikan lebih lanjut pesanan Anda.</H3>
+            <!-- <p>Setelah mengisi, kami akan menginformasikan lebih lanjut pesanan Anda.</p> -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('rentalForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Menambahkan konfirmasi sebelum submit
+            let isConfirmed = window.confirm('Apakah Anda yakin akan melakukan pemesanan?');
+
+            if (!isConfirmed) {
+                return; // Jika pengguna menekan "Cancel", form tidak akan disubmit
+            }
+
+            let nama = document.getElementById('nama').value;
+            let nohp = document.getElementById('nohp').value;
+            let alamat = document.getElementById('alamat').value;
+            let kostum = document.getElementById('kostum').value;
+            let tanggal_sewa = document.getElementById('tanggal_sewa').value;
+            let pengiriman = document.getElementById('pengiriman').value;
+            let pembayaran = document.getElementById('pembayaran').value;
+            let ktp = document.getElementById('ktp').files.length;
+
+            let valid = true;
+
+            // Reset errors
+            document.getElementById('namaError').innerText = '';
+            document.getElementById('nohpError').innerText = '';
+            document.getElementById('alamatError').innerText = '';
+            document.getElementById('kostumError').innerText = '';
+            document.getElementById('tanggalSewaError').innerText = '';
+            document.getElementById('pengirimanError').innerText = '';
+            document.getElementById('pembayaranError').innerText = '';
+            document.getElementById('ktpError').innerText = '';
+
+            // Validasi Tanggal Sewa
+            let today = new Date();
+            let todayDate = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+            let currentMonth = today.getMonth(); // 0 - 11 (January - December)
+            let currentYear = today.getFullYear();
+            let selectedDate = new Date(tanggal_sewa);
+            let nextMonth = currentMonth + 1; // Bulan depan
+
+            // Pastikan tanggal sewa tidak lebih kecil dari hari inii
+        if (tanggal_sewa < todayDate) {
+            document.getElementById('tanggalSewaError').innerText = 'Tanggal sewa tidak boleh kurang dari hari ini!';
+            alert('Tanggal sewa tidak boleh kurang dari hari ini!');  // Alert added here
+            valid = false;
+        }
+
+        // Pastikan tanggal sewa hanya untuk bulan ini dan bulan depan
+        if (selectedDate.getFullYear() !== currentYear || selectedDate.getMonth() > nextMonth) {
+            document.getElementById('tanggalSewaError').innerText = 'Tanggal sewa hanya dapat dilakukan untuk bulan ini atau bulan depan!';
+            alert('Tanggal sewa hanya dapat dilakukan untuk bulan ini atau bulan depan!');  // Alert added here
+            valid = false;
+        }
+
+            // Validasi form lainnya
+            if (!nama) {
+                document.getElementById('namaError').innerText = 'Nama lengkap harus diisi!';
+                valid = false;
+            }
+
+            if (!nohp || nohp.length < 10) {
+                document.getElementById('nohpError').innerText = 'Nomor HP tidak valid!';
+                valid = false;
+            }
+
+            if (!alamat) {
+                document.getElementById('alamatError').innerText = 'Alamat lengkap harus diisi!';
+                valid = false;
+            }
+
+            if (!kostum) {
+                document.getElementById('kostumError').innerText = 'Pilih kostum yang akan disewa!';
+                valid = false;
+            }
+
+            if (!tanggal_sewa) {
+                document.getElementById('tanggalSewaError').innerText = 'Tanggal sewa harus dipilih!';
+                valid = false;
+            }
+
+            if (ktp === 0) {
+                document.getElementById('ktpError').innerText = 'Harap upload foto KTP!';
+                valid = false;
+            }
+
+            if (!pengiriman) {
+                document.getElementById('pengirimanError').innerText = 'Pilih metode pengiriman!';
+                valid = false;
+            }
+
+            if (!pembayaran) {
+                document.getElementById('pembayaranError').innerText = 'Pilih metode pembayaran!';
+                valid = false;
+            }
+
+            // If valid, submit form and redirect to struk.html
+            if (valid) {
+                alert('Form berhasil disubmit!');
+                window.location.href = 'struk.html';  // Redirect to struk.html
+            }let nowa_ortu = document.getElementById('nowa_ortu').value;
+let nowa_teman = document.getElementById('nowa_teman').value;
+
+// Reset error tambahan
+document.getElementById('ortuError').innerText = '';
+document.getElementById('temanError').innerText = '';
+
+// Validasi WA Ortu
+if (!nowa_ortu || nowa_ortu.length < 10) {
+    document.getElementById('ortuError').innerText = 'Nomor WA Orang Tua tidak valid!';
+    valid = false;
+}
+
+// Validasi WA Teman4
+if (!nowa_teman || nowa_teman.length < 10) {
+    document.getElementById('temanError').innerText = 'Nomor WA Teman tidak valid!';
+    valid = false;
+}
+
+        });
+    </script>
+
+</body>
+</html>

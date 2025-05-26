@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB - Penerimaan Peserta Didik Baru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #dfffd9;
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4CAF50, #81C784);
+            color: white;
+            padding: 80px 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .info-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .info-box h4 {
+            color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #66bb6a;
+            transform: translateY(-4px);
+        }
+
+        button:active {
+            background-color: #388E3C;
+            transform: translateY(2px);
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 255, 0.7);
+        }
+
+        button::after {
+            content: "Klik untuk mendaftar ke sekolah ini";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        button:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo PPDB">
+        <span>PPDB 2025</span>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#sd">SD</a></li>
+            <li><a href="#smp">SMP</a></li>
+            <li><a href="#sma">SMA</a></li>
+            <li><a href="#smk">SMK</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>Selamat Datang di PPDB Sekolah Swasta</h1>
+        <p>Daftarkan anak Anda untuk jenjang pendidikan SD, SMP, SMA, atau SMK di sekolah terbaik.</p>
+        <p><a href="#sd" style="color: white; font-weight: bold;">Mulai Pendaftaran</a></p>
+        <div class="contact-info">
+            <p>Untuk pertanyaan lebih lanjut, hubungi kami:</p>
+            <p>Email: <a href="mailto:info@ppdb.com" style="color:white">info@ppdb.com</a></p>
+            <p>Telepon: +62 812-3456-7890</p>
+            <p>Alamat: Jl. Pendidikan No. 123, Kota Pendidikan, Indonesia</p>
+        </div> <div class="help-link" style="margin-top: 15px;">
+            <p>Butuh bantuan? <a href="https://wa.me/6281234567890" target="_blank">Hubungi Admin</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- Bagian SD - SMK kamu tetap seperti sebelumnya, tinggal copy bagian SD ke SMK -->
+
+<!-- Contoh satu bagian SD (ulangi struktur ini untuk SMP, SMA, SMK) -->
+<section id="sd" class="section">
+    <div class="container">
+        <h2>Pendaftaran SD</h2>
+        <p class="info-box">
+            Untuk pendaftaran SD, persiapkan dokumen berikut: <br>
+            - Akta Kelahiran, Kartu Keluarga, Surat Keterangan Lulus TK (jika ada), dan lain-lain.
+        </p>
+        <p>Untuk mendaftar, tekan tombol "Pendaftaran SD" di bawah ini dan isi formulir pendaftaran.</p>
+        <a href="daftar.html">
+            <button onclick="showMessage('sdMessage')">Pendaftaran SD</button>
+        </a>
+        <p id="sdMessage" class="message">Pendaftaran SD Anda telah berhasil dikirim!</p>
+    </div>
+</section>
+
+<!-- Ulangi struktur di atas untuk SMP, SMA, SMK -->
+
+<footer>
+    <h3>Hubungi Kami</h3>
+    <p>&copy; 2025 PPDB - Semua Hak Dilindungi</p>
+    <div class="contact-info">
+        <p>Email: <a href="mailto:info@ppdb.com" style="color:#90ee90">info@ppdb.com</a></p>
+        <p>Telepon: +62 812-3456-7890</p>
+        <p>Alamat: Jl. Pendidikan No. 123, Kota Pendidikan, Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    function showMessage(messageId) {
+        var message = document.getElementById(messageId);
+        message.style.display = "block";
+    }
+</script>
+
+</body>
+</html>

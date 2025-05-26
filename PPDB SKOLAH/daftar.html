@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB - Penerimaan Peserta Didik Baru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf4ea; /* Latar belakang hijau muda */
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50; /* Hijau tua untuk header */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #388E3C; /* Hijau gelap untuk menu */
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #66bb6a; /* Hijau cerah saat hover */
+            color: black;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h2 {
+            color: #388E3C; /* Hijau gelap untuk judul setiap bagian */
+        }
+        form {
+            background-color: #f1f8e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-button {
+            text-align: center;
+        }
+        .btn-daftar {
+            background-color: #4CAF50; /* Hijau untuk tombol */
+            color: white;
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        .btn-daftar:hover {
+            background-color: #388E3C; /* Hijau gelap saat hover */
+        }
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Penerimaan Peserta Didik Baru (PPDB)</h1>
+    <p>Informasi Penting untuk Pendaftaran Sekolah Tahun Ini</p>
+</header>
+
+<button id="backButton" onclick="goBack()">Kembali</button>
+<nav>
+    <a href="#data-pribadi">Data Pribadi Siswa</a>
+    <!-- <a href="#data-orang-tua">Data Orang Tua/Wali</a>
+    <a href="#data-akademik">Data Akademik dan Prestasi</a>
+    <a href="#dokumen-pendukung">Dokumen Pendukung</a> -->
+    <a href="#formulir">Formulir Pendaftaran</a>
+</nav>
+
+<div class="container">
+    <section id="formulir">
+        <h2>Formulir Pendaftaran PPDB</h2>
+        
+        <!-- Formulir Input -->
+        <form id="ppdbForm">
+            <!-- Data Pribadi Siswa -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+            </div>
+
+            <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin:</label>
+                <select id="jenis_kelamin" name="jenis_kelamin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tgl_lahir">Tanggal Lahir:</label>
+                <input type="date" id="tgl_lahir" name="tgl_lahir" required>
+            </div>
+
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap:</label>
+                <textarea id="alamat" name="alamat" rows="4" required placeholder="Masukkan alamat lengkap"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon:</label>
+                <input type="tel" id="telepon" name="telepon" required placeholder="Masukkan nomor telepon">
+            </div>
+
+            <div class="form-group">
+                <label for="agama">Agama:</label>
+                <select id="agama" name="agama" required>
+                    <option value="">Pilih Agama</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Buddha">Buddha</option>
+                    <option value="Katholik">Katholik</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="asal_sekolah">Asal Sekolah:</label>
+                <input type="text" id="asal_sekolah" name="asal_sekolah" required placeholder="Masukkan nama sekolah sebelumnya">
+            </div>
+
+            <div class="form-group">
+                <label for="nik">NIK (Nomor Induk Kependudukan) Siswa:</label>
+                <input type="text" id="nik" name="nik" required placeholder="Masukkan NIK siswa">
+            </div>
+
+            <div class="form-group">
+                <label for="foto">Foto Terbaru:</label>
+                <input type="file" id="foto" name="foto" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kk">Kartu Keluarga (KK):</label>
+                <input type="file" id="kk" name="kk" accept="image/*" required>
+            </div>
+
+            <!-- Data Orang Tua/Wali -->
+            <h3>Data Orang Tua/Wali</h3>
+            <div class="form-group">
+                <label for="nama_ortu">Nama Orang Tua/Wali:</label>
+                <input type="text" id="nama_ortu" name="nama_ortu" required placeholder="Masukkan nama orang tua/wali">
+            </div>
+
+            <div class="form-group">
+                <label for="pekerjaan_ortu">Pekerjaan Orang Tua/Wali:</label>
+                <input type="text" id="pekerjaan_ortu" name="pekerjaan_ortu" required placeholder="Masukkan pekerjaan orang tua/wali">
+            </div>
+
+            <div class="form-group">
+                <label for="telepon_ortu">Nomor Telepon Orang Tua/Wali:</label>
+                <input type="tel" id="telepon_ortu" name="telepon_ortu" required placeholder="Masukkan nomor telepon orang tua/wali">
+            </div>
+
+            <div class="form-group">
+                <label for="pendidikan_ortu">Pendidikan Orang Tua:</label>
+                <select id="pendidikan_ortu" name="pendidikan_ortu" required>
+                    <option value="">Pilih Pendidikan</option>
+                    <option value="Tidak Sekolah">Tidak Sekolah</option>
+                    <option value="SD">SD</option>
+                    <option value="SMP">SMP</option>
+                    <option value="SMA">SMA</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="penghasilan_ortu">Penghasilan Orang Tua/Wali:</label>
+                <input type="number" id="penghasilan_ortu" name="penghasilan_ortu" required placeholder="Masukkan penghasilan orang tua/wali">
+            </div>
+
+            <!-- Data Akademik dan Prestasi -->
+            <h3>Data Akademik dan Prestasi</h3>
+            <div class="form-group">
+                <label for="nilai_rapor">Nilai Rapor Semester Terakhir:</label>
+                <input type="text" id="nilai_rapor" name="nilai_rapor" required placeholder="Masukkan nilai rapor semester terakhir">
+            </div>
+
+            <div class="form-group">
+                <label for="sertifikat">Sertifikat atau Piagam Prestasi:</label>
+                <input type="file" id="sertifikat" name="sertifikat" accept="image/*,application/pdf">
+            </div>
+
+            <div class="form-group">
+                <label for="dokumen_ujian">Dokumen Ujian atau Tes:</label>
+                <input type="file" id="dokumen_ujian" name="dokumen_ujian" accept="image/*,application/pdf">
+            </div>
+
+            <!-- Tombol Submit -->
+            <div class="form-button">
+                <button type="button" class="btn-daftar" onclick="validasiForm()">Daftar Sekarang</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2025 PPDB. Semua hak dilindungi.</p>
+</footer>
+
+<script>
+    function validasiForm() {
+        // Ambil semua inputan yang diperlukan
+        let inputs = document.querySelectorAll("input[required], select[required], textarea[required]");
+        
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value == "") {
+                alert("Harap isi semua data dengan benar.");
+                return;
+            }
+        }
+
+        let konfirmasi = confirm("Apakah Anda yakin ingin mendaftar?");
+        
+        if (konfirmasi) {
+            alert("Pendaftaran berhasil dilakukan!");
+            document.getElementById('ppdbForm').reset(); 
+            window.location.href = "login.html";// Reset form setelah konfirmasi
+        } else {
+            alert("Pendaftaran dibatalkan.");
+        }
+    }function goBack() {
+    window.history.back();
+}
+
+</script>
+
+</body>
+</html>

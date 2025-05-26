@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login PPDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #388E3C;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388E3C;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <!-- Text placed above the form -->
+    <h3>Terima kasih telah mendaftar. Silakan login untuk melanjutkan.</h3>
+    <h3>Informasi akan dikirim ke email yang aktif.</h3>
+    
+    <h2>Login PPDB</h2>
+
+    <form onsubmit="return loginRedirect()">
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Masukkan email" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script>
+    function loginRedirect() {
+        // Get the email and password input values
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        // Simulate login check (Replace with real logic if needed)
+        if (email && password) {
+            // Redirect to info.html if login is successful
+            window.location.href = 'info.html';
+            return false; // Prevent form from submitting normally
+        } else {
+            alert('Email atau Password belum lengkap!');
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>

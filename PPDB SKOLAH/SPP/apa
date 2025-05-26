@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB - Penerimaan Peserta Didik Baru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Latar belakang lebih terang biru muda */
+            color: #0d47a1; /* Warna teks biru tua */
+        }
+
+        header {
+            background-color: #0d47a1; /* Biru tua */
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0d47a1, #1976d2); /* Gradient biru tua ke biru terang */
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .steps div {
+            background-color: #0d47a1; /* Biru tua */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .form-container form {
+            width: 80%;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container button {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #0d47a1; /* Biru tua */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #1976d2; /* Biru lebih terang saat hover */
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            background-color: #0d47a1; /* Kembali ke biru tua saat klik */
+            transform: translateY(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #0d47a1; /* Biru tua */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .info-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-box h4 {
+            color: #0d47a1;
+        }
+        
+        .message {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>PPDB - Penerimaan Peserta Didik Baru</h1>
+    <nav>
+        <ul>
+            <li><a href="#sd">SD</a></li>
+            <li><a href="#smp">SMP</a></li>
+            <li><a href="#sma">SMA</a></li>
+            <li><a href="#smk">SMK</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Selamat Datang di PPDB</h1>
+        <p>Daftarkan anak Anda untuk jenjang pendidikan SD, SMP, SMA, atau SMK di sekolah terbaik.</p>
+        <p><a href="#sd" style="color: white; font-weight: bold;">Mulai Pendaftaran</a></p>
+   
+        <div class="contact-info">
+            <p>Untuk pertanyaan lebih lanjut, Anda dapat menghubungi kami melalui:</p>
+            <p>Email: <a href="mailto:info@ppdb.com">info@ppdb.com</a></p>
+            <p>Telepon: +62 812-3456-7890</p>
+            <p>Alamat: Jl. Pendidikan No. 123, Kota Pendidikan, Indonesia</p>
+        </div>
+    </div>
+</section>
+
+<section id="sd" class="section">
+    <div class="container">
+        <h2>Pendaftaran SD</h2>
+        <p class="info-box">
+            Untuk pendaftaran SD, persiapkan dokumen berikut: <br>
+            - Akta Kelahiran, Kartu Keluarga, Surat Keterangan Lulus TK (jika ada), dan lain-lain.
+        </p>
+        
+        <p>Untuk mendaftar, tekan tombol "Pendaftaran SD" di bawah ini dan isi formulir pendaftaran.</p>
+
+        <a href="daftar.html">
+            <button onclick="showMessage('sdMessage')">Pendaftaran SD</button>
+        </a>
+
+        <p id="sdMessage" class="message">Pendaftaran SD Anda telah berhasil dikirim!</p>
+    </div>
+</section>
+
+<section id="smp" class="section">
+    <div class="container">
+        <h2>Pendaftaran SMP</h2>
+        <p class="info-box">
+            Untuk pendaftaran SMP, persiapkan dokumen berikut: <br>
+            - Akta Kelahiran, Kartu Keluarga, Nilai Rapor Terakhir, dan lain-lain.
+        </p>
+
+        <p>Untuk mendaftar, tekan tombol "Pendaftaran SMP" di bawah ini dan isi formulir pendaftaran.</p>
+
+        <a href="daftar.html">
+            <button onclick="showMessage('smpMessage')">Pendaftaran SMP</button>
+        </a>
+
+        <p id="smpMessage" class="message">Pendaftaran SMP Anda telah berhasil dikirim!</p>
+    </div>
+</section>
+
+<section id="sma" class="section">
+    <div class="container">
+        <h2>Pendaftaran SMA</h2>
+        <p class="info-box">
+            Untuk pendaftaran SMA, persiapkan dokumen berikut: <br>
+            - Akta Kelahiran, Kartu Keluarga, Nilai Rapor Terakhir, dan lain-lain.
+        </p>
+
+        <p>Untuk mendaftar, tekan tombol "Pendaftaran SMA" di bawah ini dan isi formulir pendaftaran.</p>
+
+        <a href="daftar.html">
+            <button onclick="showMessage('smaMessage')">Pendaftaran SMA</button>
+        </a>
+
+        <p id="smaMessage" class="message">Pendaftaran SMA Anda telah berhasil dikirim!</p>
+    </div>
+</section>
+
+<section id="smk" class="section">
+    <div class="container">
+        <h2>Pendaftaran SMK</h2>
+        <p class="info-box">
+            Untuk pendaftaran SMK, persiapkan dokumen berikut: <br>
+            - Akta Kelahiran, Kartu Keluarga, Nilai Rapor Terakhir, dan lain-lain.
+        </p>
+
+        <p>Untuk mendaftar, tekan tombol "Pendaftaran SMK" di bawah ini dan isi formulir pendaftaran.</p>
+
+        <a href="daftar.html">
+            <button onclick="showMessage('smkMessage')">Pendaftaran SMK</button>
+        </a>
+
+        <p id="smkMessage" class="message">Pendaftaran SMK Anda telah berhasil dikirim!</p>
+    </div>
+</section>
+
+<footer>
+    <h3>Hubungi Kami</h3>
+    <p>&copy; 2025 PPDB - Semua Hak Dilindungi</p>
+    <div class="contact-info">
+        <p>Untuk pertanyaan lebih lanjut, Anda dapat menghubungi kami melalui:</p>
+        <p>Email: <a href="mailto:info@ppdb.com">info@ppdb.com</a></p>
+        <p>Telepon: +62 812-3456-7890</p>
+        <p>Alamat: Jl. Pendidikan No. 123, Kota Pendidikan, Indonesia</p>
+    </div>
+</footer>
+
+<script>
+    function showMessage(messageId) {
+        var message = document.getElementById(messageId);
+        message.style.display = "block"; // Menampilkan pesan sukses
+    }
+</script>
+
+</body>
+</html>

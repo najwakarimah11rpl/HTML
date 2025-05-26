@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard PPDB Peserta</title>
+    <!-- Link ke Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fb;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            height: 50px;
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .dashboard-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .dashboard-card i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card h3 {
+            color: #388E3C;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .dashboard-card button:hover {
+            background-color: #388E3C;
+        }
+
+        .status {
+            font-size: 1.2rem;
+            color: #388E3C;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Information Section */
+        .info-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-section h4 {
+            color: #388E3C;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .info-section p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Contact Information Section */
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .contact-info h5 {
+            font-size: 1.2rem;
+            color: #388E3C;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .contact-info a {
+            color: #388E3C;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://example.com/logo.png" alt="Logo Sekolah"> <!-- Ganti URL dengan logo yang sesuai -->
+    <h1>Dashboard PPDB</h1>
+    <p>Selamat datang di halaman dashboard peserta. Cek status pendaftaran Anda di bawah ini.</p>
+</header>
+
+<div class="dashboard-container">
+    <!-- Card 1: Status Pendaftaran -->
+    <div class="dashboard-card">
+        <i class="fas fa-check-circle"></i>
+        <h3>Status Pendaftaran</h3>
+        <p>Cek status pendaftaran Anda: Apakah diproses, diterima, atau tidak diterima.</p>
+        <div class="status" id="status">Status: <span id="status-text">Diproses</span></div>
+        <button onclick="checkStatus()">Periksa Status</button>
+    </div>
+
+    <!-- Card 2: Cetak Bukti Pendaftaran -->
+    <div class="dashboard-card">
+        <i class="fas fa-print"></i>
+        <h3>Cetak Bukti Pendaftaran</h3>
+        <p>Unduh bukti pendaftaran Anda dalam bentuk PDF.</p>
+        <button onclick="printProof()">Cetak Bukti</button>
+    </div> 
+</div>
+
+<!-- Information Section: Re-registration and Instructions -->
+<div class="info-section">
+    <h4>Informasi Pendaftaran & Daftar Ulang</h4>
+    <p><strong>Daftar Ulang:</strong> Pastikan Anda melakukan daftar ulang sebelum batas waktu yang ditentukan. Jika tidak, status pendaftaran Anda akan batal.</p>
+    <p><strong>Batas Waktu:</strong> Daftar ulang harus dilakukan paling lambat tanggal <strong>30 Juni 2025</strong>.</p>
+    <p><strong>Persyaratan:</strong> Pastikan semua dokumen yang diperlukan seperti fotokopi KTP orang tua, fotokopi KK, dan hasil ujian sudah Anda unggah.</p>
+    <p>Jika Anda memiliki pertanyaan, silakan hubungi pihak sekolah melalui nomor yang tercantum pada halaman kontak.</p>
+</div>
+
+<!-- Contact Information Section -->
+<div class="contact-info">
+    <h5>Kontak Sekolah</h5>
+    <p>Jika Anda membutuhkan bantuan atau memiliki pertanyaan lebih lanjut mengenai pendaftaran, Anda dapat menghubungi kami melalui:</p>
+    <p><strong>Email:</strong> <a href="mailto:ppdb@sekolah.example.com">ppdb@sekolah.example.com</a></p>
+    <p><strong>Telepon:</strong> <a href="tel:+62123456789">+62 123-456-789</a></p>
+    <p><strong>Alamat:</strong> Jl. Raya No. 123, Kota Contoh, Indonesia</p>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<!-- jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+    // Simulate checking registration status
+    function checkStatus() {
+        let statusText = document.getElementById("status-text");
+        // Randomly set status for demonstration (change to actual logic)
+        const statuses = ['Diproses', 'Diterima', 'Tidak Diterima'];
+        const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+        
+        if (randomStatus === 'Diproses') {
+            statusText.style.color = 'orange';
+        } else if (randomStatus === 'Diterima') {
+            statusText.style.color = 'green';
+        } else {
+            statusText.style.color = 'red';
+        }
+        
+        statusText.innerHTML = randomStatus;
+    }
+
+    // Fungsi untuk mencetak bukti pendaftaran dalam PDF
+    function printProof() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        
+        // Header dan informasi pendaftaran
+        doc.setFontSize(20);
+        doc.text("Bukti Pendaftaran PPDB", 20, 20);
+        doc.setFontSize(12);
+        doc.text("-----------------------------------------------------", 20, 30);
+        doc.text("Nomor Pendaftaran: 1234567890", 20, 40);
+        doc.text("Tanggal Pendaftaran: " + new Date().toLocaleDateString(), 20, 50);
+
+        // Data peserta
+        doc.text("Nama Peserta: John Doe", 20, 60);
+        doc.text("Jenis Kelamin: Laki-laki", 20, 70);
+        doc.text("Tanggal Lahir: 01 Januari 2010", 20, 80);
+        doc.text("Alamat: Jl. Raya No. 123, Kota Contoh", 20, 90);
+        doc.text("Nomor Telepon: 081234567890", 20, 100);
+        doc.text("Agama: Islam", 20, 110);
+        doc.text("Asal Sekolah: SD Contoh 1", 20, 120);
+        doc.text("NIK: 1234567890123456", 20, 130);
+
+        // Data orang tua
+        doc.text("Nama Orang Tua: Budi Santoso", 20, 140);
+        doc.text("Pekerjaan Orang Tua: PNS", 20, 150);
+        doc.text("Nomor Telepon Orang Tua: 081234567891", 20, 160);
+        doc.text("Pendidikan Orang Tua: S1", 20, 170);
+        doc.text("Penghasilan Orang Tua: Rp. 5.000.000,-", 20, 180);
+
+        // Status pendaftaran
+        doc.text("Status Pendaftaran: " + document.getElementById("status-text").innerText, 20, 190);
+
+        doc.text("-----------------------------------------------------", 20, 200);
+        doc.text("Terimakasih telah melakukan pendaftaran.", 20, 210);
+
+        // Menyimpan dokumen PDF
+        doc.save("bukti-pendaftaran.pdf");
+    }
+</script>
+
+</body>
+</html>
